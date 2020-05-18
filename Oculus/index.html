@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Oculus Core</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel='icon' href='favicon.ico' type='image/x-icon'/ >
+<style>
+
+::-webkit-scrollbar {
+  background-color: #1f1f29;
+   width: 20px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #51519c;
+  border-radius: 5px;
+   }
+   ::-webkit-scrollbar-thumb:hover {
+   border-radius: 20px;
+}
+
+
+body {
+  background-color: white;
+}
+ 
+ h1:hover {
+ font-size: 41px;
+ color: #5959a8;
+ }
+
+h1 {
+  position: absolute;
+  left: 300px;
+  top: -25px;
+  color: #7676e3;
+  font-size: 40px;
+  font-family: Helvetica;
+}
+
+textarea {
+  background-color: #1f1f29;
+  color: white;
+  font-family: "Helvetica";
+  border: 10px solid #7676e3;
+  border-radius: 15px;
+  padding: 8px;
+}
+
+div[id=MenuBox] {
+  background-color: #1f1f29;
+  width: 250px;
+  height: 600px;
+  border: 10px solid #7676e3;
+  border-radius: 20px;
+  position: absolute;
+  left: 15px;
+  top: 60px;
+}
+
+.
+</style>	
+	
+</head>
+
+
+ 
+<body>
+
+<h1>Oculus Core </h1>
+
+ <div id="MenuBox">
+ <!-- The button used to copy the text -->
+<button onclick="myFunction()" style="position: absolute; left: 25px; top: 520px; font-family: Arial; width: 200px; border: 5px solid #7676e3; border-radius: 5px; background-color: #51519c; color: white;">Copy text</button>
+<!-- Dark Theme Button-->
+<button onclick="darkTheme()" style="position: absolute; left: 25px; top: 480px; font-family: Arial; width: 100px; border: 5px solid #7676e3; border-radius: 5px; background-color: #51519c; color: white;">Dark Theme</button>
+<!--Light Theme Button-->
+<button onclick="lightTheme()" style="position: absolute; left: 125px; top: 480px; font-family: Arial; width: 100px; border: 5px solid #7676e3; border-radius: 5px; background-color: #51519c; color: white;">Light Theme</button>
+ </div>
+<!-- Main Textbox Area-->
+<form onsubmit="download(this['name'].value, this['text'].value)">
+	<input type="text" name="name" value="Name.txt" style="width: 200px; position: absolute; left: 40px; top: 80px; border: 5px solid #7676e3; border-radius: 5px; background-color: #51519c; color: white">
+
+    <textarea id="textbox" rows=30 cols=100 name="text" style="font-size: 18px; position: absolute; left: 300px; top: 50px;" placeholder="Enter your text here. Oculus Core is an open-source, browser-based text editor made by Louis Harrison."></textarea>
+   
+    <input type="submit" value="Download File" style="position: absolute; left: 50px; top: 630px; font-family: Arial; width: 200px; border: 5px solid #7676e3; border-radius: 5px; background-color: #51519c; color: white;">
+ </form>
+
+
+<!--<p>Theme</p>
+<form action="" style="position: absolute; top: 10px;">
+  <input type="radio" name="browser" onclick="darkTheme()" value="#111117">Dark Theme<br>
+  <input type="radio" name="browser" onclick="lightTheme()" value="white">Light Theme<br>
+</form>
+-->
+
+
+
+
+</body>
+
+</html>
+
+
+
+  <script src="app.js"></script>
+  
+  <script language="Javascript" >
+function download(filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
+
+encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  pom.style.display = 'none';
+  document.body.appendChild(pom);
+
+  pom.click();
+
+  document.body.removeChild(pom);
+  }
+  function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("textbox");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+ }
+ 
+ function darkTheme() {
+ document.body.style.background = "#111117"; 
+} 
+ function lightTheme() {
+ document.body.style.background = "white"; 
+} 
+</script>
+</html>
